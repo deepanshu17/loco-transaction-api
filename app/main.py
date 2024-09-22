@@ -1,6 +1,8 @@
 from fastapi import FastAPI
-from app.db import init_db
-from app.routes import router
+from db.postgres import init_db
+from routes.transaction import router
+import uvicorn
+
 
 app = FastAPI()
 
@@ -8,3 +10,6 @@ app = FastAPI()
 init_db()
 
 app.include_router(router, prefix="/transactionservice")
+
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000

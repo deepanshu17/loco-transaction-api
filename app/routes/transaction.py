@@ -3,9 +3,9 @@ from collections import deque
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 
-from app.db import get_db
-from app.models import Transaction as DBTransaction
-from app.schemas import TransactionCreate, Transaction, TransactionSum, TransactionList
+from db.postgres import get_db
+from models.schema import Transaction as DBTransaction
+from models.pydantic import TransactionCreate, Transaction, TransactionSum, TransactionList
 
 router = APIRouter()
 
